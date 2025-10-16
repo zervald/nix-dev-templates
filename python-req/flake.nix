@@ -53,6 +53,11 @@
 
           libs = with pkgs; [
             stdenv.cc.cc.lib
+            # taglib
+            # libxml2
+            # libxslt
+            libzip
+            zlib
           ];
         in
         {
