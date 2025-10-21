@@ -35,7 +35,7 @@
         present. For safety, removal should
         be a manual step, even if trivial.
       */
-      version = "3.13";
+      version = "3.12";
     in
     {
       devShells = forEachSupportedSystem (
@@ -53,9 +53,9 @@
 
           libs = with pkgs; [
             stdenv.cc.cc.lib
-            # taglib
-            # libxml2
-            # libxslt
+            taglib
+            libxml2
+            libxslt
             libzip
             zlib
           ];
@@ -66,7 +66,6 @@
 
             # use requirements file with pip
             postVenvCreation = ''
-              unset SOURCE_DATE_EPOCH
               pip install -r requirements.txt
             '';
 
@@ -84,7 +83,7 @@
               }
 
               venvVersionWarn
-              unset SOURCE_DATE_EPOCH
+              # unset SOURCE_DATE_EPOCH
             '';
 
             packages =
@@ -92,17 +91,16 @@
               [
                 venvShellHook
                 pip
-                # jupyter
-                # jupytext
-                # numpy
-                # scipy
-                # scikit-image
-                # matplotlib
-                # imageio
                 ruff
+                numpy
+                matplotlib
 
-                # Add whatever else you'd like here.
-                # pkgs.basedpyright
+                # imageio
+                # scikit-image
+                # scipy
+
+                # jupyter
+                jupytext
               ]
               ++ libs;
             LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath libs;
