@@ -35,7 +35,7 @@
         present. For safety, removal should
         be a manual step, even if trivial.
       */
-      version = "3.12";
+      version = "3.13";
     in
     {
       devShells = forEachSupportedSystem (
@@ -91,7 +91,6 @@
               [
                 venvShellHook
                 pip
-                ruff
                 numpy
                 matplotlib
 
