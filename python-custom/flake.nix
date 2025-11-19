@@ -91,14 +91,15 @@
               [
                 venvShellHook
                 pip
-                numpy
-                matplotlib
 
+                # numpy
+                # matplotlib
                 # imageio
                 # scikit-image
                 # scipy
 
-                # jupyter
+                ipykernel
+                jupyter-client
                 jupytext
               ]
               ++ libs;
